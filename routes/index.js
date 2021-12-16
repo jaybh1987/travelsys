@@ -13,33 +13,34 @@ const credentials = {
 
 async function poolDemo() {
   const pool = new Pool(credentials)
-  const now = await pool.query("select now();")
+  const now = await pool.query("select * from students;")
   await pool.end(); 
-
   return now
 } 
 
-async function clientDemo() {
-  const client = new Client(credentials)
+// async function clientDemo() {
+//   const client = new Client(credentials)
 
-  await client.connect()
-  const now = await client.query("select now();")
+//   await client.connect()
+//   const now = await client.query("select * from students;;")
 
-  await client.end(); 
+//   await client.end(); 
 
-  return now; 
-}
+//   return now; 
+// }
 
 /* GET home page. */
 router.get('/', function(req, res, next) { 
 
   (async () => {
-      const poolResult = await poolDemo(); 
-      console.log("time with poool: "+ poolResult.rows[0]["now"])
+
+    const poolResult = await poolDemo(); 
+    console.log(poolResult)
+    console.log("time with poool: "+ poolResult.rows[0])
 
 
-      const clientResult = await clientDemo(); 
-      console.log('Time with client '+ clientResult.rows[0]["now"])
+      // const clientResult = await clientDemo(); 
+      // console.log('Time with client '+ clientResult.rows[0]["now"])
   })()
 
   res.render('index', { title: 'Express' });

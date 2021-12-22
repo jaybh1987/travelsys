@@ -4,36 +4,35 @@ const { Pool, Clinet, Client } = require('pg')
 var _ = require('lodash')
 
 
-const credentials = {
-  user: "postgres", 
-  host: "localhost", 
-  database: "travel", 
-  password: "postgres", 
-  port: 5432
-}
+// const credentials = {
+//   user: "postgres", 
+//   host: "localhost", 
+//   database: "travel", 
+//   password: "postgres", 
+//   port: 5432
+// }
 
 
-const pool = new Pool(credentials)
+// const pool = new Pool(credentials)
 
-const getAll = 'select * from students'; 
+// const getAll = 'select * from students'; 
 
 /* GET home page. */
 router.get('/', function(req, res, next) { 
 
-  var d = ''
+  // var d = ''
 
-  console.log(_.chunk(['a', 'b', 'c', 'd'], 2)) 
+  // console.log(_.chunk(['a', 'b', 'c', 'd'], 2)) 
 
-  var r = pool
-  .query(getAll)
-  .then(res => {
-    console.log(res)
-    return res.rows
-  })
-  .catch(e => console.error(e.stack))
+  // var r = pool
+  // .query(getAll)
+  // .then(res => {
+  //   console.log(res)
+  //   return res.rows
+  // })
+  // .catch(e => console.error(e.stack))
   
-  console.log('r = ', r)
-  res.send(r.rows.toString())
+  res.send("hello world.")
   // res.render('index', { title: 'Express' });
 });
 

@@ -11,28 +11,13 @@ var _ = require('lodash')
 //   password: "postgres", 
 //   port: 5432
 // }
-
-
 // const pool = new Pool(credentials)
-
 // const getAll = 'select * from students'; 
 
 /* GET home page. */
 router.get('/', function(req, res, next) { 
 
-  // var d = ''
-
-  // console.log(_.chunk(['a', 'b', 'c', 'd'], 2)) 
-
-  // var r = pool
-  // .query(getAll)
-  // .then(res => {
-  //   console.log(res)
-  //   return res.rows
-  // })
-  // .catch(e => console.error(e.stack))
-  
-  res.send("hello world.")
+  res.send(JSON.stringify({"name": "amit"}))
   // res.render('index', { title: 'Express' });
 });
 
